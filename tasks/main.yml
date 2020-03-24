@@ -1,0 +1,10 @@
+---
+- name: Ensure that Network Manager configuraiton is correct
+  ini_file: 
+    path: /etc/NetworkManager/NetworkManager.conf
+    section: main
+    option: dns
+    value: none
+  notify: Restart Network Manager
+  when: ansible_distribution_major_version == "7"
+
